@@ -15,7 +15,8 @@ SRCS_DIR				= ./src/
 INCS					= -I include
 
 SRCS					= $(SRCS_DIR)main.c \
-						  $(SRCS_DIR)/parser/parser.c \
+						$(SRCS_DIR)signal.c \
+						$(SRCS_DIR)/parser/parser.c \
 						$(SRCS_DIR)/parser/prompt.c \
 						$(SRCS_DIR)/parser/lexical_checks_A.c \
 						$(SRCS_DIR)/parser/lexical_checks_B.c \

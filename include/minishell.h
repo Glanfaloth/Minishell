@@ -6,7 +6,7 @@
 /*   By: lanlan <lanlan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:28:34 by lanlan            #+#    #+#             */
-/*   Updated: 2022/09/25 21:47:00 by lanlan           ###   ########.fr       */
+/*   Updated: 2022/10/15 10:48:09 by lanlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ char	**init_paths(t_meta	*pkg);
 // parsing_utils.c
 int		last_strchr_index(char *str, char c);
 
+void	handle_sigint(int sig);
 #endif

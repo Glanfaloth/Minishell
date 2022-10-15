@@ -6,7 +6,7 @@
 /*   By: lanlan <lanlan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:27:35 by lanlan            #+#    #+#             */
-/*   Updated: 2022/09/25 21:46:42 by lanlan           ###   ########.fr       */
+/*   Updated: 2022/10/15 10:49:51 by lanlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	main(int argc, char **argv, char **envp)
 	prompt = init_prompt(argv, envp);
 	while (argc || argv || envp)
 	{
+		signal(SIGINT, handle_sigint);
+		signal(SIGQUIT, SIG_IGN);
 		pkg = init_meta(&prompt);
 		prompt_str = get_prompt(prompt);
 //		chain = parser(readline(cwd));
