@@ -6,11 +6,12 @@
 /*   By: lanlan <lanlan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:27:35 by lanlan            #+#    #+#             */
-/*   Updated: 2022/10/15 10:49:51 by lanlan           ###   ########.fr       */
+/*   Updated: 2022/10/16 22:47:51 by lanlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+# include <readline/readline.h>
 
 static t_prompt	init_prompt(char **argv, char **envp)
 {

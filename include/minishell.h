@@ -6,7 +6,7 @@
 /*   By: lanlan <lanlan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:28:34 by lanlan            #+#    #+#             */
-/*   Updated: 2022/10/15 10:48:09 by lanlan           ###   ########.fr       */
+/*   Updated: 2022/10/16 22:41:57 by lanlan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 # include "../libft/libft.h"
 # include "parser.h"
 # include <stdio.h>
+# include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-
+# include <sys/ioctl.h>
+# include <signal.h>
+# include <fcntl.h>
 typedef struct s_prompt
 {
 	t_list	*commands;

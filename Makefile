@@ -4,6 +4,7 @@ CC						= gcc
 CFLAGS					= -Wall -Werror -Wextra
 AR						= ar rcs
 RM						= rm -rf
+CDEBUG = #-fsanitize=address
 
 LIBFT_DIR				= ./libft/
 LIBFT_FLAGS				= -L ./$(LIBFT_DIR) -lft
@@ -32,17 +33,17 @@ SRCS					= $(SRCS_DIR)main.c \
 OBJS					= $(SRCS:.c=.o)
 
 .c.o :
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -o $@ -c $?
+	$(CC) -I ~/.brew/opt/readline/include -I /usr/local/opt/readline/include -I /opt/homebrew/Cellar/readline/8.1.2/include $(CFLAGS) $(CDEBUG) -I $(INCS_DIR) -o $@ -c $?
 
 $(NAME) : $(OBJS)
 	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) -lreadline -o $(NAME) $(OBJS) $(LIBFT_FLAGS) -I $(INCS_DIR)
+	$(CC) $(CFLAGS) -L /usr/local/opt/readline/lib -I /usr/local/opt/readline/include -L ~/.brew/opt/readline/lib -I ~/.brew/opt/readline/include -L /opt/homebrew/Cellar/readline/8.1.2/lib -I /opt/homebrew/Cellar/readline/8.1.2/include $(CDEBUG) -lreadline -o $(NAME) $(OBJS) $(LIBFT_FLAGS) -I $(INCS_DIR)
 
 all : $(NAME)
 
 clean :
 	make -C $(LIBFT_DIR) clean
-	$(RM) $(OBJS) $(OBJS_BONUS) minishell.dSYM
+	$(RM) $(OBJS) minishell.dSYM
 
 fclean : clean
 	make -C $(LIBFT_DIR) fclean
