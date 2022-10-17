@@ -33,11 +33,11 @@ SRCS					= $(SRCS_DIR)main.c \
 OBJS					= $(SRCS:.c=.o)
 
 .c.o :
-	$(CC) -I ~/.brew/opt/readline/include -I /usr/local/opt/readline/include -I /opt/homebrew/Cellar/readline/8.1.2/include $(CFLAGS) $(CDEBUG) -I $(INCS_DIR) -o $@ -c $?
+	$(CC) -I$(HOME)/.brew/opt/readline/include $(CFLAGS) $(CDEBUG) -I $(INCS_DIR) -o $@ -c $?
 
 $(NAME) : $(OBJS)
 	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) -L /usr/local/opt/readline/lib -I /usr/local/opt/readline/include -L ~/.brew/opt/readline/lib -I ~/.brew/opt/readline/include -L /opt/homebrew/Cellar/readline/8.1.2/lib -I /opt/homebrew/Cellar/readline/8.1.2/include $(CDEBUG) -lreadline -o $(NAME) $(OBJS) $(LIBFT_FLAGS) -I $(INCS_DIR)
+	$(CC) $(CFLAGS) -L$(HOME)/.brew/opt/readline/lib $(CDEBUG) -lreadline -o $(NAME) $(OBJS) $(LIBFT_FLAGS) -I $(INCS_DIR)
 
 all : $(NAME)
 
